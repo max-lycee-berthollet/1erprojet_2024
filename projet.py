@@ -9,4 +9,4 @@ s'occupe de la vie du personnage et des objets
     
 class Arme:
     def __init__(self):
-        self.pv = 
+        self.pv = perso.Pv(perso)
