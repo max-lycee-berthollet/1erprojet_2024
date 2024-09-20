@@ -50,26 +50,52 @@ elif choix2==2:
 	print("Ok, tu pars en route vers la ville, accompagné de Julie")
 else:
     fin()
-
-
-
-
-
-
+from random import randint
 class Pv:
     '''
-s'occupe de la vie du personnage et des objets
+    s occupe de la vie du personnage, des monstres et des objets
     '''
-    def __init__(self, categorie):
+    def __init__(self, pt_de_vie):
         self.cat = categorie
-        self.pv = 100
-    def degats(self):
-        self.pv -= 4
+        self.pv = pt_de_vie 
+        
+    def degats(self, attaque):
+        self.pv -= attaque
         return self.pv
     
 class Arme:
-    def __init__(self):
-        self.pv = Pv(perso)
+    '''
+    defini les armes (grade, pt de vie, attaque)
+    '''
+    def __init__(self, grade):
+        grades = {'metal':(50,80),'bronze':(100,90),'argent':(150,100), 'or':(200,150),'diamant':(250,200)}
+        self.pv = Pv(grades[grade][1])
+        self.grade = grade
+        self.attaque = grades[grade][0]
+        
     def attaque(self):
-        attaque = 0
-        return attaque
+        return self.attaque
+    
+class Perso:
+    '''
+    defini le personnage (pt de vie,)
+    '''
+    def __init__(self):
+        self.pv = Pv(100)
+        
+class Monstre:
+    '''
+    defini les monstres (pt de vie, attaque, categorie)
+    '''
+    def __init__(self, categorie):
+        cat = {1:(10,50), 2:(15,100), 3:(20,150), 4:(25, 200), 5:(50, 500)}
+        self.pv = Pv(cat[categorie][1])
+        self.attaque = cat[categorie][0]
+
+class Bouclier:
+    '''
+    defini les pv des boucliers
+    '''
+    def __init__(self, categorie):
+        cat = [50,70,90,100,150,200]
+        self.pv = Pv(cat[categorie])
