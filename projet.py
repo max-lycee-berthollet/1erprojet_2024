@@ -98,4 +98,8 @@ class Bouclier:
     '''
     def __init__(self, categorie):
         cat = [50,70,90,100,150,200]
-        self.pv = Pv(cat[categorie])
+        self.pv = Pv(cat[categorie]) 
+
+
+
+ 
