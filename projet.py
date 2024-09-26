@@ -223,6 +223,7 @@ def combat(monstre, perso, arme):
     elif monstre.pv.pv <= 0:
         print("Tu as vaincu le monstre !")
     
+
     
     
     def jeu_terminer():
